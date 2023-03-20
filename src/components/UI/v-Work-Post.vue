@@ -1,6 +1,7 @@
 <template>
     <figure class="work__item" :class="{odd: odd}">
         <img src="../../assets/link_1.png" alt=""/>
+        <div class="error">I'm dealing with the server</div>
         <div class="work__content">
             <div class="content__title">{{ title }}</div>
             <em class="content__subtitle">{{ subtitle }}</em>
@@ -37,6 +38,9 @@ export default {
 
 <style scoped lang="scss">
 .work {
+    .error {
+        position: absolute;
+    }
     &__number {
         opacity: 0;
         position: absolute;

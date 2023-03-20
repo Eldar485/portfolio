@@ -3,7 +3,6 @@ export default {
         el.scrollBlock = () => {
             let visible = el.classList.contains('close')
             let a = document.querySelector("body")
-            console.log(1)
             if (visible) {
                 a.setAttribute("style", "overflow-y:hidden;");
             } else {

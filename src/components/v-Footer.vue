@@ -3,7 +3,7 @@
         <div class="footer__content">
             <div class="footer__logo" @click="scrollToTop">ET</div>
             <div class="footer__links">
-                <a href=""><v-nav-item class="footer__link" name="Linkedin"></v-nav-item></a>
+                <a href="https://www.linkedin.com/in/eldar-tahtarov-8672a2268/"><v-nav-item class="footer__link" name="Linkedin"></v-nav-item></a>
                 <a href="https://github.com/Eldar485"><v-nav-item class="footer__link" name="Github"></v-nav-item></a>
             </div>
         </div>

@@ -1,8 +1,8 @@
 <template>
     <div class="greeting">
         <div class="greeting__content">
-            <div class="greeting__title">Eldar Tahtarov</div>
-            <em class="greeting__description">Frontend developer</em>
+            <div class="greeting__title scroll-anim">Eldar Tahtarov</div>
+            <p class="greeting__description scroll-anim">Frontend developer</p>
         </div>
     </div>
 </template>
@@ -15,7 +15,10 @@ export default {}
 .greeting {
     background-color: #0a192f;
     width: 100%;
-    height: 95vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,9 +28,26 @@ export default {}
     }
     &__title {
         font-size: 7rem;
+        transform: translateY(60%);
+        opacity: 0;
+        transition: 0.8s;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
     &__description {
         font-size: 2rem;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: 0.8s 0.8s;
+        margin: 0;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }
 

@@ -1,18 +1,18 @@
 <template>
     <div class="about">
-        <v-title title="About Me"></v-title>
+        <v-title class="title scroll-anim" title="About Me"></v-title>
         <div class="about__description">
             <div class="about__text">
-                <p>
+                <p class="scroll-anim">
                     Hello! My name is Eldar and I'm novice frontend developer.
                     I started getting carried away with the frontend in 2020 when I studied at the university as a programmer
                 </p>
-                <p>
+                <p class="scroll-anim">
                     To date, I have managed to work in both a small and a large company. Worked with Vue 3 and Angular 2, there are also projects on React.
                     I was engaged in the development and support of banking systems and websites of construction companies
                 </p>
             </div>
-            <figure>
+            <figure class="scroll-anim">
                 <img src="../assets/im.jpg" alt="My photo" />
                 <div class="frame"></div>
             </figure>
@@ -32,6 +32,28 @@ export default {
     max-width: 85%;
     margin: 10rem auto 0;
 
+    .title {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: 0.8s;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &__text > * {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: 0.8s;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     &__description {
         display: flex;
         font-size: 1.3rem;
@@ -41,6 +63,14 @@ export default {
             position: relative;
             width: 100%;
             height: 100%;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 0.8s;
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
 
             &:hover:before {
                 width: 0;

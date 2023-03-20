@@ -1,16 +1,18 @@
 <template>
-    <header class="header" v-hidden-header>
-        <div class="logo"><a href="http://localhost:8080/">E</a></div>
-        <div class="nav">
-            <v-nav-item name="About" @click="scrollToElement('about')"></v-nav-item>
-            <v-nav-item name="Experience" @click="scrollToElement('experience')"></v-nav-item>
-            <v-nav-item name="Projects" @click="scrollToElement('work')"></v-nav-item>
-            <v-button style-type="btn-default">Resume</v-button>
-        </div>
-        <div class="burger" :class="{close: visible}" @click.stop="$emit('visibleSet')">
-            <div class="menu-button"></div>
-        </div>
-    </header>
+    <div class="background">
+        <header class="header" v-hidden-header>
+            <div class="logo"><a href="http://eldar-tahtarov.ru/">E</a></div>
+            <div class="nav">
+                <v-nav-item class="nav__item scroll-anim" name="About" @click="scrollToElement('about')"></v-nav-item>
+                <v-nav-item class="nav__item scroll-anim" name="Experience" @click="scrollToElement('experience')"></v-nav-item>
+                <v-nav-item class="nav__item scroll-anim" name="Projects" @click="scrollToElement('work')"></v-nav-item>
+                <v-button class="nav__item scroll-anim" style-type="btn-default"><a target="_blank" href="resume.pdf">Resume</a></v-button>
+            </div>
+            <div class="burger" :class="{close: visible}" @click.stop="$emit('visibleSet')">
+                <div class="menu-button"></div>
+            </div>
+        </header>
+    </div>
 </template>
 
 <script>
@@ -34,9 +36,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.background {
+    background-color: #0a192f;
+}
+a {
+    color: #ffffff;
+}
 .header {
     z-index: 6;
-    position: sticky;
+    position: fixed;
     height: 70px;
     top: 0;
     transition: 1s;
@@ -78,6 +86,31 @@ export default {
         display: flex;
         justify-content: space-between;
         margin-right: 5rem;
+
+        &__item:nth-child(1) {
+            transition: transform 0.8s, opacity 0.8s;
+        }
+        &__item:nth-child(2) {
+            transition: transform 0.8s 0.3s, opacity 0.8s 0.3s;
+        }
+        &__item:nth-child(3) {
+            transition: transform 0.8s 0.6s, opacity 0.8s 0.6s;
+        }
+        &__item:nth-child(4) {
+            transition: transform 0.8s 0.9s, opacity 0.8s 0.9s;
+        }
+
+        &__item {
+            transform: translateY(-120%);
+            opacity: 0;
+
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
     }
 
     .burger {

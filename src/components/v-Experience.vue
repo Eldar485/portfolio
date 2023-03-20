@@ -1,16 +1,23 @@
 <template>
     <div class="experience">
-        <v-title title="Where I’ve Worked"></v-title>
+        <v-title class="scroll-anim" title="Where I’ve Worked"></v-title>
         <div class="tabs">
-            <nav class="tabs__items">
-                <v-button style-type="tabs__item" :class="{active: selectedItem === item}" v-for="item in experience" v-bind:key="item.id" @click="selectedItem = item">{{ item.company }}</v-button>
+            <nav class="tabs__items scroll-anim">
+                <v-button style-type="tabs__item" :class="{active: selectedItem === item}" v-for="item in experience"
+                          v-bind:key="item.id" @click="selectedItem = item">{{ item.company }}
+                </v-button>
             </nav>
             <div class="tabs__body">
                 <div class="tabs__block">
-                    <span class="block__post">{{ selectedItem.post }}</span> <span class="block__company">@ {{ selectedItem.company }}</span>
-                    <p class="block__time">{{ selectedItem.time }}</p>
-                    <ul>
-                        <li class="block__charge" v-for="charge in selectedItem.charge" v-bind:key="charge">{{ charge }}</li>
+                    <span class="block__post scroll-anim">{{ selectedItem.post }}</span> <span class="block__company">@ {{
+                        selectedItem.company
+                    }}</span>
+                    <p class="block__time scroll-anim">{{ selectedItem.time }}</p>
+                    <ul class="scroll-anim">
+                        <li class="block__charge" v-for="charge in selectedItem.charge" v-bind:key="charge">{{
+                                charge
+                            }}
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -21,6 +28,7 @@
 <script>
 import VTitle from "@/components/UI/v-Title";
 import VButton from "@/components/UI/v-Button";
+
 export default {
     components: {VButton, VTitle},
     data() {
@@ -62,9 +70,29 @@ export default {
     max-width: 70%;
     margin: 15rem auto 0;
 
+    .title {
+        opacity: 0;
+        transform: translateY(20%);
+        transition: 0.8s;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
     ul {
         list-style-type: none;
+        opacity: 0;
+        transform: translateY(20%);
+        transition: 0.8s;
+
+        &.anim-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
+
     .tabs {
         display: flex;
         font-size: 1rem;
@@ -73,6 +101,14 @@ export default {
         &__items {
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 0.8s;
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         &__body {
@@ -84,13 +120,40 @@ export default {
         &__post {
             color: #4a4a4a;
             font-size: 2rem;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 0.8s;
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         &__company {
             font-size: 2rem;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 0.8s;
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         &__time {
             margin: 0.5rem 0 2rem 0;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 0.8s;
+
+            &.anim-active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         &__charge {
             font-size: 1.2rem;
             position: relative;
@@ -119,6 +182,7 @@ export default {
             &__post {
                 font-size: 1.5rem;
             }
+
             &__company {
                 font-size: 1.5rem;
             }
@@ -137,10 +201,12 @@ export default {
                 flex-direction: row;
                 justify-content: center;
             }
+
             &__body {
                 margin: 2rem 0 0 0;
             }
         }
+
         .block {
             &__charge {
                 margin: 1rem 0 1rem 0;
