@@ -1,7 +1,6 @@
 <template>
     <figure class="work__item" :class="{odd: odd}">
-        <img src="../../assets/link_1.png" alt=""/>
-        <div class="error">I'm dealing with the server</div>
+        <img :src="require(`@/assets/${imageSrc}`)" alt=""/>
         <div class="work__content">
             <div class="content__title">{{ title }}</div>
             <em class="content__subtitle">{{ subtitle }}</em>
@@ -31,6 +30,9 @@ export default {
         },
         odd: {
             type: Boolean
+        },
+        imageSrc: {
+            type: String
         }
     }
 }
